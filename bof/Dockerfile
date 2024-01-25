@@ -1,16 +1,15 @@
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 RUN apt-get update \
     && apt-get install -y \
     unzip \
-    grep \
     gdb \
     build-essential \
     ncat \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /apps
+RUN mkdir /app
 COPY start_nc.sh /app/start_nc.sh
 COPY bof2.c /app/main.c
 COPY flag.txt /app/flag.txt

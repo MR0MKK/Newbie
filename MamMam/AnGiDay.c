@@ -11,7 +11,20 @@ void displayMenu() {
     printf("Chon mot trong cac lua chon sau:\n");
 }
 
+void init(){
+    setvbuf(stdout,NULL,_IONBF,0);
+    setvbuf(stdin ,NULL,_IONBF,0);
+    setvbuf(stderr,NULL,_IONBF,0);
+}
+
+void intro(){
+    printf("Hom nay em muốn ăn gi\n");
+    printf("Em ăn gi cũng được.\n");
+}
+
 int main() {
+    init();
+    intro();
     int userChoice;
     int randomChoice;
     int count = 0;
@@ -23,8 +36,7 @@ int main() {
     while (count < 100) {
         srand(count);
         printf("Ngay %d: \n", count + 1);
-        //printf("Hom nay em muốn ăn gi\n");
-        //printf("Em ăn gi cũng được.\n");
+        
         displayMenu();
         scanf("%d", &userChoice);
 

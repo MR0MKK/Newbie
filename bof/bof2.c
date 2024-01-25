@@ -2,12 +2,18 @@
 #include <stdlib.h>
 #include <string.h>
 
+void init(){
+    setvbuf(stdout,NULL,_IONBF,0);
+    setvbuf(stdin ,NULL,_IONBF,0);
+    setvbuf(stderr,NULL,_IONBF,0);
+}
 
 void win() {
   system("/bin/cat flag.txt");
 }
 
 void vuln() {
+  init();
   char padding[16];
   char buff[32];
 
